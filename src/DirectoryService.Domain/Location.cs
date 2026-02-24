@@ -1,28 +1,30 @@
-﻿namespace DirectoryService.Domain;
+﻿using DirectoryService.Domain.ValueObject;
 
-public class Location
+namespace DirectoryService.Domain;
+
+public sealed class Location
 {
-    public Location()
+    private Location()
     {
-        
     }
-    public Location(Guid id, string name, string adress, string timeZone, string description, DateTime createAt, DateTime updateAt)
+    
+    public Location(Guid? id, LocationName name, string adress, string timeZone)
     {
-       Id = id;
+       Id = id ?? Guid.NewGuid();
        Name = name;
        Adress = adress;
        TimeZone = timeZone;
-        IsActive = true;
-        CreateAt = DateTime.Now;
-        UpdateAt = DateTime.Now;
+       IsActive = true;
+       CreateAt = DateTime.Now;
+       UpdateAt = null;
     }
-    public string test { get; set; }
-    private Guid Id { get; set; }
-    private string Name { get; set; }
-    private string Adress { get; set; }
-    private string TimeZone { get; set; }
-    private bool IsActive { get; set; }
-    private DateTime CreateAt { get; set; }
-    private DateTime UpdateAt { get; set; }
     
+    public Guid Id { get; private set; }
+    public LocationName Name { get; private set; }
+    public string Adress { get; private set; }
+    public string TimeZone { get; private set; }
+    public bool IsActive { get; private set; }
+    public DateTime CreateAt { get; private set; }
+    public DateTime? UpdateAt { get; private set; }
+    public List<DepartmentLocation> DepartmentLocations { get; private set; } = [];
 }

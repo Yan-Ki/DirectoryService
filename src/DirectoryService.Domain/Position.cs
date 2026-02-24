@@ -1,23 +1,26 @@
-﻿namespace DirectoryService.Domain;
+﻿using DirectoryService.Domain.ValueObject;
 
-public class Position
+namespace DirectoryService.Domain;
+
+public sealed class Position
 {
-    public Position(Guid id, string name, DateTime createAt, DateTime updateAt)
+    private Position()
     {
-        Id = id;
-        Name = name;
-        CreateAt = createAt;
-        UpdateAt = updateAt;
-        IsActive = true;
-        UpdateAt = DateTime.Now;
-        CreateAt = DateTime.Now;
-        UpdateAt = DateTime.Now;
     }
-    private Guid Id { get; set; }
-    private string Name { get; set; }
-    private string Description { get; set; }
-    private bool IsActive { get; set; }
-    private DateTime CreateAt { get; set; }
-    private DateTime UpdateAt { get; set; }
-     
+    public Position(Guid? id, PositionName name, Description description)
+    {
+        Id = id ?? Guid.NewGuid();
+        Name = name;
+        Description = description;
+        IsActive = true;
+        CreateAt = DateTime.Now;
+        UpdateAt = null;
+    }
+    public Guid Id { get; private set; }
+    public PositionName Name { get; private set; }
+    public Description Description { get; private set; }
+    public bool IsActive { get; private set; }
+    public DateTime CreateAt { get; private set; }
+    public DateTime? UpdateAt { get; private set; }
+    public List<DepartmentPosition> DepartmentPositions { get; private set; } = [];
 }

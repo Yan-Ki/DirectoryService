@@ -1,59 +1,44 @@
-﻿using CSharpFunctionalExtensions;
+﻿using System.Runtime.CompilerServices;
+using DirectoryService.Domain.ValueObject;
+using Path = DirectoryService.Domain.ValueObject.Path;
 
 namespace DirectoryService.Domain
 {
-    public class Department
+    public sealed class Department
     {
-        public Department()
+        private Department()
         {
-            
         }
-        private Department (Guid? id,
-            string name,
-            string identifier,
+        
+        public Department (
+            Guid? id,
+            Name name,
+            Identifier identifier,
             Guid? parentId,
             Path path,
-            short depth,
-            string timeZone,
-            DateTime createAt,
-            DateTime updateAt)
+            short depth)
         {
             Id = id ?? Guid.NewGuid();
             Name = name;
             Identifier = identifier;
-            ParentId = parentId;
+            ParentId = parentId ?? Guid.Empty;
             Path = path;
             Depth = depth;
-        }
+            IsActive = true;
+            CreateAt = DateTime.UtcNow;
+            UpdateAt = null;
+        } 
+        
         public Guid Id { get;  private set; }
-        public string Name { get; private set; }
-        public string Identifier { get; private set; }
+        public Name Name { get; private set; }
+        public Identifier Identifier { get; private set; }
         public Guid? ParentId { get; private set; }
         public Path Path { get; private set; }
         public short Depth { get; private set; }
         public bool IsActive { get; private set; }
         public DateTime CreateAt { get; private set; }
-        public DateTime UpdateAt { get; private set; }
-        public List<Department> Departments { get; private set; }
-        public List<Location> Locations { get; private set; }
-        public List<Position> Positions { get; private set; }
-    }
-
-    public record Path
-    {
-        public string Value { get;}
-        private Path(string value)
-        {
-            Value = value;
-        }
-        
-        public static Result<Path, string> Create(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return Result.Failure<Path, string>("Пустая строка");
-            }
-            return new Path(value);
-        }
+        public DateTime? UpdateAt { get; private set; }
+        public List<DepartmentPosition> DepartmentPositions { get; private set; } = [];
+        public List<DepartmentLocation> DepartmentLocations { get; private set; } = [];
     }
 }
