@@ -16,6 +16,7 @@ public record Description
     public static Result<Description, Error> Create(string value)
     { 
         if (value.Length <= MAX_LENGTH) return GeneralErrors.ValueIsInvalid($"{typeof(Description).FullName}", $"Длина строки больше {MAX_LENGTH}", $"{nameof(Department)}");
+        
         return new Description(value);
     }
 }

@@ -17,9 +17,13 @@ public record Path
     public static Result<Path, Error> Create(string value)
     {
         var errorMessages = new List<ErrorMessage>();
+        
         if (string.IsNullOrWhiteSpace(value)) return GeneralErrors.ValueIsInvalid($"{typeof(Path).FullName}", "Пустая строка", $"{nameof(Department)}");
+        
         if (value.Length > MAX_LENGTH) return GeneralErrors.ValueIsInvalid($"{typeof(Path).FullName}", $"Длина строки больше {MAX_LENGTH}", $"{nameof(Department)}");
+        
         if (value.Length < MIN_LENGTH) return GeneralErrors.ValueIsInvalid($"{typeof(Path).FullName}", $"Длина строки меньше {MIN_LENGTH}", $"{nameof(Department)}");
+        
         return new Path(value);
     }
 }

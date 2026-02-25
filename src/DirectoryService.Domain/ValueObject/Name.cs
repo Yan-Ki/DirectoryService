@@ -17,6 +17,7 @@ public record Name
     public static Result<Name, Error> Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value)) return GeneralErrors.ValueIsInvalid($"{typeof(Name).FullName}", "Пустая строка", $"{nameof(Department)}");
+        
         return new Name(value);
     }
 }

@@ -17,8 +17,11 @@ public record LocationName
     public static Result<LocationName, Error> Create(string value)
     {
         if (string.IsNullOrWhiteSpace(value)) return GeneralErrors.ValueIsInvalid($"{typeof(LocationName).FullName}", "Пустая строка", $"{nameof(LocationName)}");
+        
         if (value.Length > MAX_LENGTH) return GeneralErrors.ValueIsInvalid($"{typeof(LocationName).FullName}", $"Длина строки больше {MAX_LENGTH}", $"{nameof(LocationName)}");
+        
         if (value.Length < MIN_LENGTH) return GeneralErrors.ValueIsInvalid($"{typeof(LocationName).FullName}", $"Длина строки меньше {MIN_LENGTH}", $"{nameof(LocationName)}");
+        
         return new LocationName(value);
     }
 }
