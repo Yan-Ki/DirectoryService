@@ -25,9 +25,13 @@ public record Identifier
         
         if (value.Length < MIN_LENGTH) errorMessages.Add(new ErrorMessage($"{nameof(Identifier)}", $"Длина строки меньше {MIN_LENGTH}", $"{nameof(Department)}"));
         
-        if (!Regex.IsMatch(value, @"^[a-zA-Z\-]+$")) errorMessages.Add(new ErrorMessage($"{nameof(Identifier)}",
-            $"Строка должна содержать только латинские символы", $"{nameof(Department)}"));
-        
-        return errorMessages.Count>0 ? Error.Validation(errorMessages) : new Identifier(value);
+        if (!Regex.IsMatch(value, @"^[a-zA-Z\-]+$"))
+        {
+            errorMessages.Add(new ErrorMessage(
+                $"{nameof(Identifier)}",
+                $"Строка должна содержать только латинские символы", $"{nameof(Department)}"));
+        }
+
+        return errorMessages.Count > 0 ? Error.Validation(errorMessages) : new Identifier(value);
     }
 }

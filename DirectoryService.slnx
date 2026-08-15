@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/scr/">
+    <File Path="DirectoryService.slnx" />
     <Project Path="src/DirectoryService.Application/DirectoryService.Application.csproj" />
     <Project Path="src/DirectoryService.Contracts/DirectoryService.Contracts.csproj" />
     <Project Path="src/DirectoryService.Domain/DirectoryService.Domain.csproj" />
@@ -8,6 +9,9 @@
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
+    <File Path=".globalconfig" />
     <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="docker-compose.yml" />
   </Folder>
 </Solution>

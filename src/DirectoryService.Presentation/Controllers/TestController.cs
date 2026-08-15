@@ -9,6 +9,5 @@ public class TestController : ControllerBase
     [HttpGet]
     public void Test()
     {
-        
     }
 }

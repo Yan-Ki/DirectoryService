@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: directory_service_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - posgres-data:/var/lib/postgresql/data
+
+volumes:
+  posgres-data:

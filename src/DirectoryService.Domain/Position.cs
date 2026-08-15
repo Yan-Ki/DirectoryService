@@ -7,6 +7,7 @@ public sealed class Position
     private Position()
     {
     }
+    
     public Position(Guid? id, PositionName name, Description description)
     {
         Id = id ?? Guid.NewGuid();
@@ -16,6 +17,7 @@ public sealed class Position
         CreateAt = DateTime.Now;
         UpdateAt = null;
     }
+    
     public Guid Id { get; private set; }
     public PositionName Name { get; private set; }
     public Description Description { get; private set; }
