@@ -11,11 +11,15 @@ public class DirectoryServiceDbContext :DbContext
     {
         _connectionString = connectionString;
     }
-
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
         optionsBuilder.UseNpgsql(_connectionString);
-        
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(DirectoryServiceDbContext).Assembly);
     }
 }

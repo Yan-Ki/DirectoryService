@@ -58,6 +58,7 @@ dotnet_diagnostic.S6444.severity = none
 dotnet_diagnostic.NU1903.severity = none
 dotnet_diagnostic.S1186.severity = none
 dotnet_diagnostic.S6966.severity = none
+dotnet_diagnostic.S125.severity = none
 
 # Правила строже, чем по умолчанию:
 dotnet_diagnostic.S1125.severity = error  # Redundant Boolean literal
