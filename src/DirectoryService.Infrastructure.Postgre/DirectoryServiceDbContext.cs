@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-
-namespace DirectoryService.Infrastructure;
+﻿using DirectoryService.Domain;
+using Microsoft.EntityFrameworkCore;
+namespace DirectoryService.Infrastructure.Postgre;
 
 public class DirectoryServiceDbContext :DbContext
 {
@@ -14,12 +13,17 @@ public class DirectoryServiceDbContext :DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder);
+        // base.OnConfiguring(optionsBuilder);
         optionsBuilder.UseNpgsql(_connectionString);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // modelBuilder.ApplyConfigurationsFromAssembly(typeof(DirectoryServiceDbContext).Assembly);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(DirectoryServiceDbContext).Assembly);
     }
+    
+    public DbSet<Department> Departments => Set<Department>();
+    public DbSet<Location> Locations => Set<Location>();
+    public DbSet<Position> Positions => Set<Position>();
 }

@@ -8,8 +8,8 @@ public record Name
     public const int MIN_LENGTH = 3;
     public const int MAX_LENGTH = 150;
     public string Value { get; }
-    
-    private Name(string value)
+
+   private Name(string value)
     {
         Value = value;
     }

@@ -1,4 +1,4 @@
-using DirectoryService.Infrastructure;
+using DirectoryService.Infrastructure.Postgre;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

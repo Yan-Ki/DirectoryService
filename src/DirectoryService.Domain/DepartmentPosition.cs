@@ -16,4 +16,7 @@ public sealed class DepartmentPosition
     public Guid Id { get; private set; }
     public Guid DepartmentId { get; private set; }
     public Guid PositionId { get; private set; }
+    public Department Department { get;  private set; }
+    public Position Position { get;  private set; } 
+    
 }

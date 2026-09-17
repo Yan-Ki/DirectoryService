@@ -4,6 +4,7 @@ namespace DirectoryService.Domain;
 
 public sealed class Location
 {
+    private readonly List<DepartmentLocation> _departmentLocations = [];
     private Location()
     {
     }
@@ -26,5 +27,5 @@ public sealed class Location
     public bool IsActive { get; private set; }
     public DateTime CreateAt { get; private set; }
     public DateTime? UpdateAt { get; private set; }
-    public List<DepartmentLocation> DepartmentLocations { get; private set; } = [];
+    public IReadOnlyList<DepartmentLocation> DepartmentLocations => _departmentLocations;
 }
