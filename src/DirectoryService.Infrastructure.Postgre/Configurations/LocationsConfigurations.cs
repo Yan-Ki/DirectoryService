@@ -28,7 +28,7 @@ public class LocationsConfigurations :IEntityTypeConfiguration<Location>
         builder.Property(x => x.Adress).HasColumnName("adress").IsRequired();
         builder.Property(x => x.TimeZone).HasColumnName("time_zone").IsRequired();
         builder.Property(x => x.CreateAt).HasColumnName("create_at").IsRequired();
-        builder.Property(x => x.CreateAt).HasColumnName("is_active").IsRequired();
-        builder.Property(x => x.CreateAt).HasColumnName("update_at").IsRequired();
+        builder.Property(x => x.IsActive).HasColumnName("is_active").IsRequired();
+        builder.Property(x => x.UpdateAt).HasColumnName("update_at").IsRequired();
     }
 }

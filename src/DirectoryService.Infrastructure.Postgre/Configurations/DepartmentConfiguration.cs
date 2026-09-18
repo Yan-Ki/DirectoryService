@@ -3,6 +3,7 @@ using DirectoryService.Domain.Constants;
 using DirectoryService.Domain.ValueObject;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Path = DirectoryService.Domain.ValueObject.Path;
 
 namespace DirectoryService.Infrastructure.Postgre.Configurations;
 
@@ -30,7 +31,7 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
             .HasColumnName("path")
             .HasConversion(
                 x => x.Value,
-                s => DirectoryService.Domain.ValueObject.Path.Create(s).Value) // Исправить Path
+                s => Path.Create(s).Value) 
             .HasMaxLength(LenghtConstants.Length150)
             .IsRequired();
         
@@ -42,7 +43,7 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
             .HasColumnName("identifier")
             .HasConversion(
                 x => x.Value,
-                s => Identifier.Create(s).Value) // Исправить Path
+                s => Identifier.Create(s).Value) 
             .HasMaxLength(LenghtConstants.Length150)
             .IsRequired();
         
