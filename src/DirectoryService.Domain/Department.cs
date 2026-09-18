@@ -6,8 +6,12 @@ namespace DirectoryService.Domain
 {
     public sealed class Department
     {
+        private readonly List<DepartmentPosition> _departmentPositions = [];
+        
+        private readonly List<DepartmentLocation> _departmentLocations = [];
         private Department()
         {
+            // ef core
         }
         
         public Department (
@@ -47,8 +51,8 @@ namespace DirectoryService.Domain
         
         public DateTime? UpdateAt { get; private set; }
         
-        public List<DepartmentPosition> DepartmentPositions { get; private set; } = [];
+        public IReadOnlyList<DepartmentPosition> DepartmentPositions => _departmentPositions;
         
-        public List<DepartmentLocation> DepartmentLocations { get; private set; } = [];
+        public IReadOnlyList<DepartmentLocation> DepartmentLocations => _departmentLocations;
     }
 }
