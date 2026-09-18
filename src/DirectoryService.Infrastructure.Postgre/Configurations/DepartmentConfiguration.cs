@@ -34,10 +34,9 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
                 s => Path.Create(s).Value) 
             .HasMaxLength(LengthConstants.Length150)
             .IsRequired();
-        
+
         builder.Property(x => x.ParentId)
-            .HasColumnName("parent_id")
-            .IsRequired();
+            .HasColumnName("parent_id");
         
         builder.Property(x => x.Identifier)
             .HasColumnName("identifier")
