@@ -39,7 +39,7 @@ namespace DirectoryService.Domain
         
         public Identifier Identifier { get; private set; }
         
-        public Guid? ParentId { get; private set; }
+        public Guid ParentId { get; private set; }
         
         public Path Path { get; private set; }
         
