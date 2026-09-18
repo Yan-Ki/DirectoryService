@@ -22,7 +22,7 @@ public class PositionsConfigurations :IEntityTypeConfiguration<Position>
             .HasConversion(
                 x => x.Value,
                 s => PositionName.Create(s).Value)
-            .HasMaxLength(LenghtConstants.Length100)
+            .HasMaxLength(LengthConstants.Length100)
             .IsRequired();
         
         builder.Property(x => x.Description)
@@ -30,7 +30,7 @@ public class PositionsConfigurations :IEntityTypeConfiguration<Position>
             .HasConversion(
                 x => x.Value,
                 s => Description.Create(s).Value)
-            .HasMaxLength(LenghtConstants.Length10000)
+            .HasMaxLength(LengthConstants.Length10000)
             .IsRequired();
        
         builder.Property(x => x.CreateAt).HasColumnName("create_at").IsRequired();

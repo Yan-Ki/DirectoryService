@@ -22,7 +22,7 @@ public class LocationsConfigurations :IEntityTypeConfiguration<Location>
             .HasConversion(
                 x => x.Value,
                 s => LocationName.Create(s).Value)
-            .HasMaxLength(LenghtConstants.Length120)
+            .HasMaxLength(LengthConstants.Length120)
             .IsRequired();
         
         builder.Property(x => x.Adress).HasColumnName("adress").IsRequired();

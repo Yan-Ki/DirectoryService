@@ -1,6 +1,6 @@
 ﻿namespace DirectoryService.Domain.Constants;
 
-public readonly struct LenghtConstants
+public readonly struct LengthConstants
 {
     public static readonly int Length3 = 3;
     public static readonly int Length150 = 150;

@@ -24,7 +24,7 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
             .HasConversion(
                 x => x.Value,
                 s => Name.Create(s).Value)
-            .HasMaxLength(LenghtConstants.Length150)
+            .HasMaxLength(LengthConstants.Length150)
             .IsRequired();
         
         builder.Property(x => x.Path)
@@ -32,7 +32,7 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
             .HasConversion(
                 x => x.Value,
                 s => Path.Create(s).Value) 
-            .HasMaxLength(LenghtConstants.Length150)
+            .HasMaxLength(LengthConstants.Length150)
             .IsRequired();
         
         builder.Property(x => x.ParentId)
@@ -44,7 +44,7 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
             .HasConversion(
                 x => x.Value,
                 s => Identifier.Create(s).Value) 
-            .HasMaxLength(LenghtConstants.Length150)
+            .HasMaxLength(LengthConstants.Length150)
             .IsRequired();
         
         builder.Property(x => x.Depth).HasColumnName("depth").IsRequired();
