@@ -17,6 +17,7 @@ namespace DirectoryService.Infrastructure.Postgre.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", nullable: false),
                     name = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
+                    slug = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
                     identifier = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
                     parent_id = table.Column<Guid>(type: "uuid", nullable: true),
                     path = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: false),
