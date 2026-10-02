@@ -15,7 +15,7 @@ public class LocationController:ControllerBase
         return Ok("Create");
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("{locationId:guid}")]
     public async Task<IActionResult> GetById(
         [FromRoute] Guid locationId,
         CancellationToken cancellationToken)
@@ -29,7 +29,7 @@ public class LocationController:ControllerBase
         return Ok("GetAll");
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("{locationId:guid}")]
     public async Task<IActionResult> Update(
         [FromRoute] Guid locationId,
         [FromBody] UpdateLocationDto location,
@@ -38,7 +38,7 @@ public class LocationController:ControllerBase
         return Ok("Update");
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("{locationId:guid}")]
     public async Task<IActionResult> Delete(
         [FromRoute] Guid locationId,
         CancellationToken cancellationToken)

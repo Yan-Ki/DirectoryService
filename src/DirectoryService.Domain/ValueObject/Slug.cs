@@ -31,13 +31,13 @@ public partial record Slug
         {
             return GeneralErrors.ValueIsInvalid(
                 $"{typeof(Slug).FullName}",
-                $"slug только строчные латинские буквы, цифры и дефисы и не начинается и не заканчивается дефисом",
+                $"slug только заглавные латинские буквы, цифры и дефисы и не начинается и не заканчивается дефисом",
                 $"{nameof(Slug)}");
         }
         
         return new Slug(value);
     }
 
-    [GeneratedRegex(@"^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$")]
+    [GeneratedRegex(@"^[A-Z0-9](?:[A-Z0-9-]*[A-Z0-9])?$")]
     private static partial Regex SlugPattern();
 }

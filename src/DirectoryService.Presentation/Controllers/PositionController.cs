@@ -15,7 +15,7 @@ public class PositionController : ControllerBase
         return Ok("Create");
     }
 
-    [HttpGet("{id:guid}")]
+    [HttpGet("{positionId:guid}")]
     public async Task<IActionResult> GetById(
         [FromRoute] Guid positionId, 
         CancellationToken cancellationToken)
@@ -29,7 +29,7 @@ public class PositionController : ControllerBase
         return Ok("GetAll");
     }
 
-    [HttpPut("{id:guid}")]
+    [HttpPut("{positionId:guid}")]
     public async Task<IActionResult> Update(
         [FromRoute] Guid positionId,
         [FromBody] UpdatePositionDto department,
@@ -38,7 +38,7 @@ public class PositionController : ControllerBase
         return Ok("Update");
     }
 
-    [HttpDelete("{id:guid}")]
+    [HttpDelete("{positionId:guid}")]
     public async Task<IActionResult> Delete(
         [FromRoute] Guid positionId,
         CancellationToken cancellationToken)
