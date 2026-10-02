@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DirectoryService.Infrastructure.Postgre.Migrations
 {
     [DbContext(typeof(DirectoryServiceDbContext))]
-    [Migration("20260918205317_Initial")]
+    [Migration("20261001195858_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -65,6 +65,12 @@ namespace DirectoryService.Infrastructure.Postgre.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)")
                         .HasColumnName("path");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("slug");
 
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("timestamp with time zone")

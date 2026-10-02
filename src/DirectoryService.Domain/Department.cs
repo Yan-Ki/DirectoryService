@@ -17,6 +17,7 @@ namespace DirectoryService.Domain
         public Department (
             Guid? id,
             Name name,
+            Slug slug,
             Identifier identifier,
             Guid? parentId,
             Path path,
@@ -24,6 +25,7 @@ namespace DirectoryService.Domain
         {
             Id = id ?? Guid.NewGuid();
             Name = name;
+            Slug = slug;
             Identifier = identifier;
             ParentId = parentId ?? Guid.Empty;
             Path = path;
@@ -36,6 +38,7 @@ namespace DirectoryService.Domain
         public Guid Id { get;  private set; }
         
         public Name Name { get; private set; }
+        public Slug Slug { get; private set; }
         
         public Identifier Identifier { get; private set; }
         

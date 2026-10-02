@@ -27,6 +27,14 @@ public class DepartmentConfiguration :IEntityTypeConfiguration<Department>
             .HasMaxLength(LengthConstants.Length150)
             .IsRequired();
         
+        builder.Property(x => x.Slug)
+            .HasColumnName("slug")
+            .HasConversion(
+                x => x.Value,
+                s => Slug.Create(s).Value)
+            .HasMaxLength(LengthConstants.Length150)
+            .IsRequired();
+        
         builder.Property(x => x.Path)
             .HasColumnName("path")
             .HasConversion(

@@ -63,6 +63,12 @@ namespace DirectoryService.Infrastructure.Postgre.Migrations
                         .HasColumnType("character varying(150)")
                         .HasColumnName("path");
 
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)")
+                        .HasColumnName("slug");
+
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("update_at");
