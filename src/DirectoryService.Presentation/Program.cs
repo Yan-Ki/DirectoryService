@@ -1,10 +1,10 @@
 using DirectoryService.Infrastructure.Postgre;
+using DirectoryService.Presentation;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddOpenApi();
+builder.Services.AddProgramDependencies();
 builder.Services.AddScoped<DirectoryServiceDbContext>(_ => 
     new DirectoryServiceDbContext(builder.Configuration.GetConnectionString("directory_service_db")!));
 builder.Services.AddHealthChecks();
