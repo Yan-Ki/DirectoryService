@@ -2,7 +2,7 @@
 
 namespace DirectoryService.Application.Locations;
 
-public interface ILocationRepository
+public interface ILocationsRepository
 {
     Task<Guid> CreateAsync(Location location, CancellationToken cancellationToken);
     Task<Guid> UpdateAsync(Guid locationId, CancellationToken cancellationToken);

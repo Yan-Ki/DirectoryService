@@ -2,7 +2,7 @@
 
 namespace DirectoryService.Presentation;
 
-public static class DependencyInjection
+public static class DependencyInjectionServices
 {
     public static IServiceCollection AddProgramDependencies(this IServiceCollection services)
     {

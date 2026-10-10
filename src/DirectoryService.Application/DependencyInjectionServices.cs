@@ -4,12 +4,12 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace DirectoryService.Application;
 
-public static class DependencyInjection
+public static class DependencyInjectionServices
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
-        services.AddScoped<ILocationService, LocationService>();
+        services.AddValidatorsFromAssembly(typeof(DependencyInjectionServices).Assembly);
+        services.AddScoped<ILocationService, LocationsService>();
         return services;
     }
 }

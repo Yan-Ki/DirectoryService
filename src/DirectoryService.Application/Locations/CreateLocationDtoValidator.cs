@@ -12,8 +12,8 @@ public class CreateLocationDtoValidator:AbstractValidator<CreateLocationDto>
         RuleFor(x => x.Name)
             .NotNull()
             .NotEmpty()
-            .MaximumLength(LengthConstants.Length3)
-            .MinimumLength(LengthConstants.Length150)
+            .MaximumLength(LengthConstants.Length150)
+            .MinimumLength(LengthConstants.Length3)
             .WithMessage("Имя невалидно");
         RuleFor(x => x.City).NotNull().NotEmpty();
         RuleFor(x => x.Street).NotNull().NotEmpty();

@@ -7,16 +7,16 @@ using FluentValidation.Results;
 
 namespace DirectoryService.Application.Locations;
 
-public class LocationService : ILocationService
+public class LocationsService : ILocationService
 {
-    private readonly ILocationRepository _locationRepository;
+    private readonly ILocationsRepository _locationsRepository;
     private readonly IValidator<CreateLocationDto> _validator;
 
-    public LocationService(
-        ILocationRepository locationRepository,
+    public LocationsService(
+        ILocationsRepository locationsRepository,
         IValidator<CreateLocationDto> validator)
     {
-        _locationRepository = locationRepository;
+        _locationsRepository = locationsRepository;
         _validator = validator;
     }
     
@@ -33,7 +33,7 @@ public class LocationService : ILocationService
         }
         
         // проверка на существование локации
-        bool locationNameAvailable = await _locationRepository.SearchLocationNameAsync(locationDto.Name, cancellationToken);
+        bool locationNameAvailable = await _locationsRepository.SearchLocationNameAsync(locationDto.Name, cancellationToken);
         if (locationNameAvailable)
         {
             throw new ValidationException("Локация уже существует");
@@ -45,7 +45,7 @@ public class LocationService : ILocationService
         string timeZone = "Europe/Moscow";
         var location = new Location(null, name, adress, timeZone);
         
-        await _locationRepository.CreateAsync(location, cancellationToken);
+        await _locationsRepository.CreateAsync(location, cancellationToken);
         return location.Id;
     }
 }
